@@ -13,7 +13,6 @@ const ChatHome = () => {
         <ChatApp/>
         <hr/>
 
-        
         <Link to="/GameWatch" className="Link">
           <button>Go to Game Watch</button>
         </Link>

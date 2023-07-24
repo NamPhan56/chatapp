@@ -2,21 +2,21 @@ import './chat.css';
 import io from 'socket.io-client';
 import { useEffect, useState } from 'react';
 
-const socket = io.connect("http://localhost:5000");
+//const socket = io.connect("http://localhost:5000");
 
 function ChatApp(){
     const [message, setMessage] = useState("");
     const [messageReceived, setMessageReceived] = useState("");
 
     const sendMessage = () => {
-        socket.emit("send_message", {message});
+        //socket.emit("send_message", {message});
     }
 
-    useEffect(() => {
-        socket.on("receive_message", (data) => {
-            setMessageReceived(data.message)
-        })
-    }, [socket])
+    // useEffect(() => {
+    //     socket.on("receive_message", (data) => {
+    //         setMessageReceived(data.message)
+    //     })
+    // }, [socket])
 
     const handleInputChange = (e) => {
         setMessage(e.target.value)

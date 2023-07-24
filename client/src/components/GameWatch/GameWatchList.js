@@ -4,7 +4,7 @@ import { useState } from "react";
 //This is the Blog App's Home Page, also serving as its harness
 const GameWatchList = () => {
 
-    const [gameList, setGameList] = useState([]);
+    const [gameList, setGameList] = useState([]); //probably should store this on the server
     const [inputValue, setInputValue] = useState('');    
 
 
@@ -15,6 +15,7 @@ const GameWatchList = () => {
     const inputSubmit = () => {
         setGameList((gameList) => [...gameList, inputValue])
         setInputValue('');
+        //fetch a post to the server to broad cast the new list. add game list array to the server
     }
 
     const resetList = () => {
