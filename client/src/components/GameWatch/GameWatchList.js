@@ -4,27 +4,23 @@ import { useState } from "react";
 //This is the Blog App's Home Page, also serving as its harness
 const GameWatchList = () => {
 
-    const [gameList, setGameList] = useState(["a","b","c"]);
-    //let gameList = ["a","b","c"];
-    const [inputValue, setInputValue] = useState("");    
+    const [gameList, setGameList] = useState([]);
+    const [inputValue, setInputValue] = useState('');    
 
 
     const inputOnChangeHandler = (e) => {
-        //console.log(e.target.value)
         setInputValue(e.target.value);
-        
     }
 
     const inputSubmit = () => {
-        gameList.push(inputValue)
-        //console.log(gameList);
+        setGameList((gameList) => [...gameList, inputValue])
         setInputValue('');
     }
 
     const resetList = () => {
         setGameList([])
     }
-    
+
     const content = (
         <div className="page">
             <div id="game-watch-list">

@@ -7,8 +7,7 @@
 .game-list {
     display:inline-block;
     border: 2px solid black;
-    padding-right: 20px;
-    padding-left: 10px;
+    padding-right: 40px;
     margin: 10px;
 }
 
