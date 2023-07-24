@@ -1,8 +1,9 @@
 import './chat.css';
 import ChatApp from  './ChatApp';
+import { Link } from 'react-router-dom';
 
 //This is the Blog App's Home Page, also serving as its harness
-const BlogHome = () => {
+const ChatHome = () => {
  const content = (
     <div className="page">
       <div id="chat-app">
@@ -10,11 +11,22 @@ const BlogHome = () => {
         <p>This is the Chat app.</p>
         <hr/>
         <ChatApp/>
+        <hr/>
+
+        
+        <Link to="/GameWatch" className="Link">
+          <button>Go to Game Watch</button>
+        </Link>
+
+        <Link to="/GameWatch/Client" className="Link">
+          <button>Go to Game Watch Client</button>
+        </Link>
+        
       </div>
     </div>
     )
     return content
 }
 
-export default BlogHome;
+export default ChatHome;
 
