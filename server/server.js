@@ -6,9 +6,11 @@ const { Server } = require("socket.io");
 const server = http.createServer(app);
 
 const cors = require("cors");
-app.use(cors());
+const corsOptions = require('./config/corsOptions')
+app.use(cors(corsOptions))
 
-const gameList = []; //usually this should be stored on a db..., but storing here for this app
+const bodyParser = require('body-parser');
+app.use(bodyParser.json())
 
 const io = new Server(server, {
     cors: {
@@ -17,6 +19,7 @@ const io = new Server(server, {
     }
 });
 
+app.use("/game-watch", require('./routes/gameWatchRoutes'));
 
 io.on('connection', (socket) => {
     console.log(`a user connected: ${socket.id}`);
@@ -29,6 +32,8 @@ io.on('connection', (socket) => {
     );
 });
   
+
+
 const PORT = process.env.POR || 5000
 
 server.listen(PORT, () => {
