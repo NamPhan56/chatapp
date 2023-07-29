@@ -5,16 +5,23 @@ import { useState } from "react";
 const GameWatchList = () => {
 
     const [gameList, setGameList] = useState([]); //probably should store this on the server
-    const [inputValue, setInputValue] = useState('');    
+    const [inputGameName, setInputGameName] = useState('');    
 
 
     const inputOnChangeHandler = (e) => {
-        setInputValue(e.target.value);
+        setInputGameName(e.target.value);
     }
 
     const inputSubmit = () => {
-        setGameList((gameList) => [...gameList, inputValue])
-        setInputValue('');
+
+        const postOBJ = {
+            "game": inputGameName,
+        };
+
+        
+
+        setGameList((gameList) => [...gameList, inputGameName])
+        setInputGameName('');
         //fetch a post to the server to broad cast the new list. add game list array to the server
     }
 
@@ -38,7 +45,7 @@ const GameWatchList = () => {
                 </div>
 
                 <form id="input-game">
-                    <input onInput={inputOnChangeHandler} value={inputValue ?? ''} autoComplete="off" placeholder="Add a new game"></input>
+                    <input onInput={inputOnChangeHandler} value={inputGameName ?? ''} autoComplete="off" placeholder="Add a new game"></input>
                     <button id="input-add-btn" type="button" onClick={inputSubmit} >Add</button>
                     <button id="input-reset-btn" type="button" onClick={resetList} >Reset List</button>
                 </form>
